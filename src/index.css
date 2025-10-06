@@ -1,1 +1,62 @@
 @import "tailwindcss";
+
+/* --- React Datepicker Customization --- */
+.react-datepicker-wrapper {
+  display: block;
+}
+.react-datepicker {
+  font-family: inherit !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1) !important;
+}
+.react-datepicker__header {
+  background-color: #f9fafb !important;
+  border-bottom: 1px solid #e5e7eb !important;
+}
+.react-datepicker__day--selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range {
+  background-color: #4f46e5 !important;
+  color: white !important;
+  border-radius: 0.375rem !important;
+}
+.react-datepicker__day:hover {
+  background-color: #e0e7ff !important;
+  border-radius: 0.375rem !important;
+}
+.react-datepicker__today-button {
+  background: #f9fafb !important;
+  border-top: 1px solid #e5e7eb !important;
+}
+/* For the floating background blobs */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* --- Custom Animation Classes --- */
+/* These classes apply the keyframes */
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out forwards; /* 'forwards' keeps the final state */
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Optional: You can still use arbitrary values for animation delay in your JSX,
+   but if you prefer classes, you can define them here too. */
+.animation-delay-2000 {
+  animation-delay: -2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: -4s;
+}
