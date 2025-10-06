@@ -1,16 +1,27 @@
-import axios from "axios";
+import api from "./axiosConfig"; // Import the centralized api instance
 
-// আপনার ব্যাকএন্ড সার্ভারের URL
-const API_URL = "http://localhost:5000/api/products";
+// All product-related functions will now use the 'api' instance
 
-// সব প্রোডাক্ট আনার জন্য ফাংশন
+// Get all products
 export const getProducts = async () => {
-  const response = await axios.get(API_URL);
+  const response = await api.get("/products");
   return response.data;
 };
 
-// নতুন প্রোডাক্ট যোগ করার জন্য ফাংশ শন
+// Add a new product
 export const addProduct = async (productData) => {
-  const response = await axios.post(API_URL, productData);
+  const response = await api.post("/products", productData);
+  return response.data;
+};
+
+// Update a product
+export const updateProduct = async (productId, productData) => {
+  const response = await api.put(`/products/${productId}`, productData);
+  return response.data;
+};
+
+// Delete a product
+export const deleteProduct = async (productId) => {
+  const response = await api.delete(`/products/${productId}`);
   return response.data;
 };
